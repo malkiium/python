@@ -1,14 +1,14 @@
 import pygame
 import sys
 
-SW, SH = 900, 900
+SW, SH = 1000, 1000
 pygame.init()
 screen = pygame.display.set_mode((SW,SH))
 pygame.display.set_caption("checkered")
 tps = pygame.time.Clock()
 font = pygame.font.SysFont("arial", 50)
-square_amount_X = int(input("what is the amount of squares in horizontal? :"))
-square_amount_Y = int(input("what is the amount of squares in vertical? :"))
+square_amount_X = int(input("what is the amount of squares in horizontal? : "))
+square_amount_Y = int(input("what is the amount of squares in vertical? : "))
 
 
 def CREATE_CHESSBOARD():
