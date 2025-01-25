@@ -102,4 +102,4 @@ while True:
 
 
     pygame.display.update() #update everything
-    tps.tick(10) #fps
+    tps.tick(7) #fps
