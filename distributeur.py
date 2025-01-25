@@ -1,5 +1,3 @@
-import sys
-
 billets_amt = 20
 billets_prix = 5
 pieces_amt = 100
