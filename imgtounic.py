@@ -2,13 +2,27 @@ import os
 from PIL import Image
 
 # Unicode characters for brightness levels (can be customized)
-UNICODE_CHARS = ["\u2588", "\u2589", "\u258A", "\u258B", "\u258C", "\u258D", "\u258E", "\u258F", "\u2590", "\u2591", "\u2592", "\u2593"]
+UNICODE_CHARS = [
+    " ",   # Darkest (empty space)
+    "▁",   # 5% block
+    "▂",   # 10% block
+    "▃",   # 20% block
+    "▄",   # 30% block
+    "▅",   # 40% block
+    "▆",   # 60% block
+    "▇",   # 80% block
+    "░",   # 50% shade
+    "▒",   # 70% shade
+    "▓",   # 90% shade
+    "█"    # Lightest (full block)
+]
 
-# Resize image
+# Resize image with corrected aspect ratio for Unicode
 def resize_image(image, new_width=100):
     aspect_ratio = image.height / image.width
-    new_height = int(new_width * aspect_ratio * 0.55)
+    new_height = int(new_width * aspect_ratio * 0.6)  # Adjusted for smoother scaling
     return image.resize((new_width, new_height))
+
 
 # Convert image to grayscale
 def grayify(image):
