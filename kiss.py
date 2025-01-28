@@ -5,3 +5,5 @@ if kiss.lower() == "yes":
         print("mouah ")
     else:
         print("fuck you too.")
+else:
+    print("fuck you too.")
