@@ -18,7 +18,7 @@ def randiminium():
         elif answer.lower() == "higher":
             lwlim = randnumb+1
 
-    more = str = input("i found it ! hell ye ! want to try again ? ")
+    more = str(input("i found it ! hell ye ! want to try again ? "))
     if more.lower() == "yes":
         print()
         randiminium()
