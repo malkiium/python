@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95bdf75f-1e81-49e0-9c5b-6bf5ee4d96d9" name="Changes" comment="commit">
-      <change beforePath="$PROJECT_DIR$/CourMagistral.py" beforeDir="false" afterPath="$PROJECT_DIR$/CourMagistral.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kiss.py" beforeDir="false" />
-    </list>
+    <list default="true" id="95bdf75f-1e81-49e0-9c5b-6bf5ee4d96d9" name="Changes" comment="commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,35 +47,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.CourMagistral.executor": "Run",
-    "Python.abcdshtuf.executor": "Run",
-    "Python.anagramishiun.executor": "Run",
-    "Python.asciigeom.executor": "Run",
-    "Python.bisextileyear.executor": "Run",
-    "Python.calculator.executor": "Run",
-    "Python.ctrlsaisie.executor": "Run",
-    "Python.damier.executor": "Run",
-    "Python.distributeur.executor": "Run",
-    "Python.factorials.executor": "Run",
-    "Python.firstgame.executor": "Run",
-    "Python.hammings.executor": "Run",
-    "Python.imgtounic.executor": "Run",
-    "Python.invertedrandomnobm.executor": "Run",
-    "Python.kiss.executor": "Run",
-    "Python.multv2.executor": "Run",
-    "Python.pwroftwo.executor": "Run",
-    "Python.randomnobm.executor": "Run",
-    "Python.testingGround.executor": "Run",
-    "Python.tilcount.executor": "Run",
-    "Python.ytbdwonlder.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.CourMagistral.executor&quot;: &quot;Run&quot;,
+    &quot;Python.abcdshtuf.executor&quot;: &quot;Run&quot;,
+    &quot;Python.anagramishiun.executor&quot;: &quot;Run&quot;,
+    &quot;Python.asciigeom.executor&quot;: &quot;Run&quot;,
+    &quot;Python.bisextileyear.executor&quot;: &quot;Run&quot;,
+    &quot;Python.calculator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ctrlsaisie.executor&quot;: &quot;Run&quot;,
+    &quot;Python.damier.executor&quot;: &quot;Run&quot;,
+    &quot;Python.distributeur.executor&quot;: &quot;Run&quot;,
+    &quot;Python.factorials.executor&quot;: &quot;Run&quot;,
+    &quot;Python.firstgame.executor&quot;: &quot;Run&quot;,
+    &quot;Python.hammings.executor&quot;: &quot;Run&quot;,
+    &quot;Python.imgtounic.executor&quot;: &quot;Run&quot;,
+    &quot;Python.invertedrandomnobm.executor&quot;: &quot;Run&quot;,
+    &quot;Python.kiss.executor&quot;: &quot;Run&quot;,
+    &quot;Python.multv2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pwroftwo.executor&quot;: &quot;Run&quot;,
+    &quot;Python.randomnobm.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testingGround.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tilcount.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ytbdwonlder.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
