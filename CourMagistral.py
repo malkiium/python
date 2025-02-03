@@ -36,3 +36,10 @@ for i in range(len(li2)): #this needs a list with information INSIDE OF IT, empt
     li2[i] = 2**i
 print("\n for loop with lists", li2)
 
+def anyfuction(x: float) :
+    return 2*x
+
+E = map(anyfuction, li2) #map lets you apply a fuction on a list and use it as a variable
+print("\n E without list info", E)
+E = list(E)
+print("\n with list info", E)
