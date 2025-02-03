@@ -33,7 +33,7 @@ print("\n clear", ll2)
 li2 = [a for a in range(0,5)]
 print("\n li2", li2)
 for i in range(len(li2)): # this needs a list with data INSIDE IT, an empty list = no go
-    li2[i] = 2**i
+    li2[i] = 2**i #if empty, then 2^empty = error. thus needs 2^0 = not error, and 0 will be changed by i in the for loop.
 print("\n for loop with lists", li2)
 
 def anyfunction(x: float):
