@@ -16,6 +16,8 @@ def compare(mot1:list, mot2:list):
 
         if mot1 == mot2:
             print("Vraie")
+        else:
+            print("get recked. try again. \n\n\n\n\n")
 
     else:
         print("get recked. try again. \n\n\n\n\n")
