@@ -1,30 +1,30 @@
 ll = [x for x in range(0,7)]
-print("\n creation liste", ll)
+print("\n list creation", ll)
 
-ll.append(45) # ajoute a la fin
+ll.append(45) # adds to the end
 print("\n append", ll)
 
 ll.append(23)
 print("\n append", ll)
 
-ll.extend([56,43]) # ajoute a la liste ce bout de liste
+ll.extend([56,43]) # adds this sublist to the list
 print("\n extend", ll)
 
-ll.insert(6, 5) # ajout 5 avec le chiffre 6 dans la liste
+ll.insert(6, 5) # adds 5 at index 6 in the list
 print("\n insert", ll)
 
-# copy only makes a double of the list, but the information of the list has the same reference.
-# change 1 lists contenant and it changes the other
+# copy only makes a duplicate of the list, but the list's data has the same reference.
+# changing one list's content changes the other
 ll2 = ll.copy()
 
-ll2.sort() #organise la liste de facon croissance SUPER UTILE
+ll2.sort() # organizes the list in ascending order, SUPER USEFUL
 print("\n sort", ll2)
-print(ll) #permet de verif que ll a pas etait organiser
+print(ll) # verifies that ll was not sorted
 
-lltri = list(sorted(ll)) #permet de faire une liste triée dans une nouvelle liste, sans trier la liste originale
+lltri = list(sorted(ll)) # creates a sorted list in a new list, without sorting the original list
 print("\n lltri", lltri)
 
-ll2.reverse() #fait la liste... a l'envers.
+ll2.reverse() # reverses the list
 print("\n reverse", ll2)
 
 ll2.clear()
@@ -32,14 +32,14 @@ print("\n clear", ll2)
 
 li2 = [a for a in range(0,5)]
 print("\n li2", li2)
-for i in range(len(li2)): #this needs a list with information INSIDE OF IT, empty list = no go
-    li2[i] = 2**i
+for i in range(len(li2)): # this needs a list with data INSIDE IT, an empty list = no go
+    li2[i] = 2**i #if empty, then 2^empty = error. thus needs 2^0 = not error, and 0 will be changed by i in the for loop.
 print("\n for loop with lists", li2)
 
-def anyfuction(x: float) :
+def anyfunction(x: float):
     return 2*x
 
-E = map(anyfuction, li2) #map lets you apply a fuction on a list and use it as a variable
+E = map(anyfunction, li2) # map lets you apply a function to a list and use it as a variable
 print("\n E without list info", E)
 E = list(E)
 print("\n with list info", E)
