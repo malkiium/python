@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95bdf75f-1e81-49e0-9c5b-6bf5ee4d96d9" name="Changes" comment="commit" />
+    <list default="true" id="95bdf75f-1e81-49e0-9c5b-6bf5ee4d96d9" name="Changes" comment="commit">
+      <change beforePath="$PROJECT_DIR$/.idea/python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tilcount.py" beforeDir="false" afterPath="$PROJECT_DIR$/tilcount.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,17 +26,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;The-World-Of-Malk&quot;
-  }
+  &quot;lastFilter&quot;: {}
 }</component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="997f2950-c6bd-4c0a-85da-707fc79dcf0d" />
   </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/The-World-Of-Malk/python.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/malkiium/python.git&quot;,
     &quot;accountId&quot;: &quot;997f2950-c6bd-4c0a-85da-707fc79dcf0d&quot;
   }
 }</component>
@@ -196,7 +197,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738568966174</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="commit">
+      <option name="closed" value="true" />
+      <created>1738618499713</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1738618499713</updated>
+    </task>
+    <task id="LOCAL-00015" summary="commit">
+      <option name="closed" value="true" />
+      <created>1738618808793</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1738618808793</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
