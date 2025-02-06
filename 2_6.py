@@ -6,6 +6,7 @@ def fonction(*args):
     else:
         return ''.join(args)
 
-text = input("bonjour, enter des arguments. ")
-
-fonction(text)
+text = input("Bonjour, entrez des arguments : ")
+arguments = text.split()
+resultat = fonction(*arguments)
+print(resultat)
