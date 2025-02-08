@@ -11,9 +11,6 @@ def compare(mot1:list, mot2:list):
             if mot1[i] == ".":
                 mot1[i] =  mot2[i]
 
-        mot1.sort()
-        mot2.sort()
-
         if mot1 == mot2:
             print("Vraie")
         else:
