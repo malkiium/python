@@ -1,13 +1,13 @@
 import random
 
-leng = random.randint(0,100)
+leng = random.randint(0,1000)
 numbs = [0] * leng
 hinum = 0
 occurences = []
 
-
 for i in range(len(numbs)):
-    numbs[i] = random.randint(0,25)
+    numbs[i] = random.randint(0,1000)
+
 
 
 def ver1(hinum, occurences, numbs, leng):
