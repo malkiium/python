@@ -10,7 +10,7 @@ for i in range(len(numbs)):
 
 
 
-def ver1(hinum, occurences, numbs, leng):
+def ver1(hinum:int, occurences:list, numbs:list, leng:int):
     print("version 1 :")
 
     for x in range(len(numbs)):
@@ -19,7 +19,7 @@ def ver1(hinum, occurences, numbs, leng):
 
     print(hinum)
 
-def ver2(hinum, occurences, numbs, leng):
+def ver2(hinum:int, occurences:list, numbs:list, leng:int):
     print("\n\n\nversion 2 : ")
 
     for x in range(len(numbs)):
@@ -33,7 +33,7 @@ def ver2(hinum, occurences, numbs, leng):
 
     print(hinum, occurences)
 
-def ver3(hinum, occurences, numbs, leng):
+def ver3(hinum:int, occurences:list, numbs:list, leng:int):
     print("\n\n\nversion 3 :")
 
     for x in range(len(numbs)):
@@ -44,7 +44,7 @@ def ver3(hinum, occurences, numbs, leng):
 
     print(hinum, occurences)
 
-def ver4(hinum, occurences, numbs, leng):
+def ver4(hinum:int, occurences:list, numbs:list, leng:int):
     print("\n\n\nversion 4 :")
 
     for x in range(len(numbs)):
