@@ -31,7 +31,7 @@ def ver2(hinum:int, occurences:list, numbs:list, leng:int):
             occurences.clear()
             occurences.append(x)
 
-    print(hinum, occurences)
+    print(hinum, "last position :", occurences)
 
 def ver3(hinum:int, occurences:list, numbs:list, leng:int):
     print("\n\n\nversion 3 :")
@@ -42,7 +42,7 @@ def ver3(hinum:int, occurences:list, numbs:list, leng:int):
             hinum = numbs[x]
             occurences.append(x)
 
-    print(hinum, occurences)
+    print(hinum, "first possition", occurences)
 
 def ver4(hinum:int, occurences:list, numbs:list, leng:int):
     print("\n\n\nversion 4 :")
@@ -55,7 +55,7 @@ def ver4(hinum:int, occurences:list, numbs:list, leng:int):
         elif hinum == numbs[x]:
             occurences.append(x)
 
-    print(hinum, occurences)
+    print(hinum, "positions :", occurences)
 
 ver1(hinum, occurences, numbs, leng)
 ver2(hinum, occurences, numbs, leng)
