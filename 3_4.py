@@ -1,20 +1,20 @@
 import random
 
-leng = random.randint(0,5)
-numbs1 = [0] * leng
-numbs2 = [0] * leng
+def fusion(numbs1:list, numbs2:list):
+    numbs1.sort()
+    numbs2.sort()
 
-for i in range(len(numbs1)):
-    numbs1[i] = random.randint(0,10)
-for i in range(len(numbs2)):
-    numbs2[i] = random.randint(0, 10)
-numbs1.sort()
-numbs2.sort()
+    print("numbs1 :", numbs1, "numbs2 :", numbs2)
 
-print("numbs1 :", numbs1, "numbs2 :", numbs2)
+    numbs3 = []
+    numbs3 = numbs1 + numbs2
+    numbs3.sort()
 
-numbs3 = []
-numbs3 = numbs1 + numbs2
-numbs3.sort()
+    print("numbs 3 :", numbs3, "\n")
+    return numbs3
 
-print("numbs3 :", numbs3)
+assert fusion([1, 6, 10], [0, 7, 8, 9])
+assert fusion([1, 6, 10], [])
+assert fusion([], [0, 7, 8, 9])
+
+print("all tests passed ! ")

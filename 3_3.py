@@ -1,16 +1,19 @@
-import random
+def insere(nu:int, numbs:list):
+    numbs.append(nu)
+    numbs.sort()
+    print(numbs)
 
-leng = random.randint(0,10)
-numbs = [0] * leng
 
-for i in range(len(numbs)):
-    numbs[i] = random.randint(0,10)
-numbs.sort()
+exemple_1 = [1, 2, 4, 5]
+insere(3, exemple_1)
+assert exemple_1 == [1, 2, 3, 4, 5]
 
-print("\n\n", numbs)
+exemple_2 = [1, 2, 7, 12, 14, 25]
+insere(7, exemple_2)
+assert exemple_2 == [1, 2, 7, 7, 12, 14, 25]
 
-inpnumb = int(input("add a number ? "))
-numbs.append(inpnumb)
-numbs.sort()
+exemple_3 = [2, 3, 4]
+insere(1, exemple_3)
+assert exemple_3 == [1, 2, 3, 4]
 
-print("\n\n", numbs)
+print("All tests passed! ✅")
