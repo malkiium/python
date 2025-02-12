@@ -2,17 +2,14 @@ import webbrowser
 import time
 import pyautogui
 
-# Open Google in Chrome
-webbrowser.open("https://www.google.com")
 
-# Wait for the browser to load
+webbrowser.open("https://www.twitch.tv/willowsiva")
 time.sleep(3)
 
-# Click on the search bar (adjust coordinates if necessary)
-pyautogui.click(x=400, y=300)  # Approximate location, may need adjustment
+pyautogui.click(x=2400, y=1375)
 
-# Type "hello world"
-pyautogui.write("hello world", interval=0.1)
+time.sleep(0.5)
+pyautogui.click(x=2400, y=1375)
 
-# Press Enter
+pyautogui.write("hello world", interval=0.01)
 pyautogui.press("enter")
