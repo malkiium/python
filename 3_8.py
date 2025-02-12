@@ -23,15 +23,13 @@ def divParImpair(tab:list):
     return tab + factors
 
 def affichage(n: int, tab: list):
-    # Clean the list to remove 1s and 0s from the factorization
     cleaned_tab = [x for x in tab if x > 1]
 
     if len(cleaned_tab) == 1 and cleaned_tab[0] == n:
-        print(f"{n} est un nombre premier.")
+        print(n, "est un nombre premier.")
     else:
-        # Format the factors as a multiplication string
         mults = " * ".join(map(str, cleaned_tab))
-        print(f"{n} = {mults}")
+        print(n, "=", mults)
 
 
 
