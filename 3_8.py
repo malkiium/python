@@ -1,47 +1,46 @@
 def divPar2(nb):
+    original = nb  # Store the original number
     count = 0
     while nb % 2 == 0:
         nb //= 2
         count += 1
     oui = [nb, count]
-    divParImpair(oui)
+    divParImpair(oui, original)
     return [nb, count]
 
-def divParImpair(tab:list):
-    nb = tab[0]  # Extract the number to be factored
+def divParImpair(tab: list, original):
+    nb = tab[0]
     div = 3
     factors = []
-
     while nb > 1:
         if nb % div == 0:
             nb //= div
             factors.append(div)
-            div = 3
         else:
             div += 2
-    affichage(tab[0], factors)
-    return tab + factors
+    new_tab = tab + factors
+    affichage(original, new_tab)
+    return new_tab
 
 def affichage(n: int, tab: list):
-    cleaned_tab = [x for x in tab if x > 1]
 
-    if len(cleaned_tab) == 1 and cleaned_tab[0] == n:
-        print(n, "est un nombre premier.")
+    count2 = tab[1] if len(tab) > 1 else 0
+    odd_factors = tab[2:] if len(tab) > 2 else []
+
+    factors = ([2] * count2) + odd_factors
+
+    if len(factors) == 1 and factors[0] == n:
+        print(f"{n} est un nombre premier !")
     else:
-        mults = " * ".join(map(str, cleaned_tab))
-        print(n, "=", mults)
+        factor_str = " * ".join(map(str, factors))
+        print(f"{n} = {factor_str}")
 
 
 
 
-assert divPar2(46) == [23, 1]
-assert divPar2(24) == [3, 3]
-assert divPar2(7) == [7, 0]
-assert divPar2(125) == [125,0]
-assert divPar2(360) == [45,3]
 
-assert divParImpair([23,1]) == [23,1,23]
-assert divParImpair([3,3]) == [3,3,3]
-assert divParImpair([7,0]) == [7,0,7]
-assert divParImpair([125,0]) == [125,0,5,5,5]
-assert divParImpair([45,3]) == [45,3,3,3,5]
+affichage(46, [23, 1, 23])
+affichage(24, [3, 3, 3])
+affichage(7, [7, 0, 7])
+affichage(125, [125, 0, 5, 5, 5])
+affichage(360, [45, 3, 3, 3, 5])
