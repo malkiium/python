@@ -1,6 +1,3 @@
-x_min = -150
-x_max = 150
-
 def limite_amplitude(val:list, x_min:int, x_max:int):
     if val > x_max:
         val = x_max
