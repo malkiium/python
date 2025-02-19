@@ -1,4 +1,4 @@
-lst = [0]
+lst = []
 
 def listToTuple():
     global lst
