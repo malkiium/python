@@ -8,7 +8,7 @@ def predict_word(pattern, word_list):
         if char != '_':
             possible_words = [word for word in possible_words if word[i] == char]
     
-    return random.choice(possible_words).upper() if possible_words else "No matching word found."
+    return possible_words[0].upper() if possible_words else "No matching word found."
 
 def load_words(filename):
     try:
