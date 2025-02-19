@@ -1,4 +1,4 @@
-MINYEAR, MAXYEAR = 0, 99999
+MINYEAR, MAXYEAR = 1500, 3000
 
 for i in range(MINYEAR, MAXYEAR):
     if  i % 400 == 0:
