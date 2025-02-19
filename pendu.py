@@ -15,6 +15,9 @@ def predict_word(pattern, word_list):
 
 def main():
     word_list = ["asshole", "another", "example", "predict", "pattern", "letters"]
+    with open('words.txt', 'r') as file:
+        additional_words = file.read().splitlines()
+    word_list.extend(additional_words)
     while True:
         pattern = input("Enter the pattern (use _ for unknown letters): ")
         if pattern.lower() == "exit":
