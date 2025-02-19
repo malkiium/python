@@ -98,21 +98,114 @@ jeux = [
     ("ARK: Survival Evolved", 1, 100),
     ("Rust", 1, 100),
     ("Dead by Daylight", 5, 5),
-    ("Friday the 13th: The Game", 1, 8)
+    ("Friday the 13th: The Game", 1, 8),
+    ("The Legend of Zelda: Breath of the Wild", 1, 1),
+    ("The Legend of Zelda: Tears of the Kingdom", 1, 1),
+    ("Super Mario Odyssey", 1, 2),
+    ("Super Smash Bros. Ultimate", 1, 8),
+    ("Mario Kart 8 Deluxe", 1, 12),
+    ("Animal Crossing: New Horizons", 1, 8),
+    ("Luigi's Mansion 3", 1, 8),
+    ("Splatoon 3", 1, 8),
+    ("Fire Emblem: Three Houses", 1, 1),
+    ("Fire Emblem Engage", 1, 1),
+    ("Xenoblade Chronicles 3", 1, 1),
+    ("Pokémon Scarlet & Violet", 1, 4),
+    ("Pokémon Legends: Arceus", 1, 1),
+    ("Pokémon Sword & Shield", 1, 4),
+    ("Kirby and the Forgotten Land", 1, 2),
+    ("Metroid Prime Remastered", 1, 1),
+    ("Metroid Dread", 1, 1),
+    ("Bayonetta 3", 1, 1),
+    ("Octopath Traveler", 1, 1),
+    ("Octopath Traveler II", 1, 1),
+    ("Triangle Strategy", 1, 1),
+    ("Live A Live", 1, 1),
+    ("Bravely Default II", 1, 1),
+    ("Monster Hunter Rise", 1, 4),
+    ("Monster Hunter Stories 2: Wings of Ruin", 1, 1),
+    ("Hyrule Warriors: Age of Calamity", 1, 2),
+    ("Mario Party Superstars", 1, 4),
+    ("Super Mario Party", 1, 4),
+    ("Donkey Kong Country: Tropical Freeze", 1, 2),
+    ("New Super Mario Bros. U Deluxe", 1, 4),
+    ("Super Mario 3D World + Bowser’s Fury", 1, 4),
+    ("Captain Toad: Treasure Tracker", 1, 2),
+    ("Yoshi's Crafted World", 1, 2),
+    ("The World Ends With You: Final Remix", 1, 1),
+    ("NEO: The World Ends With You", 1, 1),
+    ("Shin Megami Tensei V", 1, 1),
+    ("Danganronpa: Trigger Happy Havoc", 1, 1),
+    ("Danganronpa 2: Goodbye Despair", 1, 1),
+    ("Danganronpa V3: Killing Harmony", 1, 1),
+    ("Astral Chain", 1, 1),
+    ("Persona 5 Royal", 1, 1),
+    ("Persona 4 Golden", 1, 1),
+    ("Persona 3 Portable", 1, 1),
+    ("The Great Ace Attorney Chronicles", 1, 1),
+    ("Phoenix Wright: Ace Attorney Trilogy", 1, 1),
+    ("Cuphead", 1, 2),
+    ("Hollow Knight", 1, 1),
+    ("Celeste", 1, 1),
+    ("Undertale", 1, 1),
+    ("Stardew Valley", 1, 4),
+    ("Terraria", 1, 8),
+    ("Hades", 1, 1),
+    ("Dead Cells", 1, 1),
+    ("Slay the Spire", 1, 1),
+    ("The Binding of Isaac: Repentance", 1, 2),
+    ("Tunic", 1, 1),
+    ("No Man's Sky", 1, 32),
+    ("Disco Elysium", 1, 1),
+    ("Baldur's Gate 3", 1, 4),
+    ("Divinity: Original Sin 2", 1, 4),
+    ("Diablo III: Eternal Collection", 1, 4),
+    ("Diablo IV", 1, 4),
+    ("Minecraft", 1, 100),
+    ("Among Us", 4, 15),
+    ("Overcooked! All You Can Eat", 1, 4),
+    ("Overcooked 2", 1, 4),
+    ("Moving Out", 1, 4),
+    ("Lego Star Wars: The Skywalker Saga", 1, 2),
+    ("Lego Harry Potter Collection", 1, 2),
+    ("Lego Marvel Super Heroes", 1, 2),
+    ("Lego City Undercover", 1, 2),
+    ("Lego Jurassic World", 1, 2),
+    ("Just Dance 2024", 1, 6),
+    ("Just Dance 2023", 1, 6),
+    ("The Jackbox Party Pack 10", 1, 8),
+    ("The Jackbox Party Pack 9", 1, 8),
+    ("The Jackbox Party Pack 8", 1, 8),
+    ("FIFA 23 Legacy Edition", 1, 4),
+    ("NBA 2K24", 1, 4),
+    ("Pikmin 4", 1, 2),
+    ("Pikmin 3 Deluxe", 1, 2),
+    ("Tetris 99", 1, 99),
+    ("Pac-Man 99", 1, 99),
+    ("Kirby’s Return to Dream Land Deluxe", 1, 4),
+    ("Fae Farm", 1, 4),
+    ("Disney Dreamlight Valley", 1, 1),
+    ("Harvestella", 1, 1),
+    ("Rune Factory 5", 1, 1),
+    ("Story of Seasons: Friends of Mineral Town", 1, 1),
+    ("Story of Seasons: Pioneers of Olive Town", 1, 1),
+    ("My Time at Portia", 1, 1),
+    ("My Time at Sandrock", 1, 1),
+    ("Spiritfarer", 1, 1)
 ]
 nb_joueurs = 0
 
-def game_Selection(int: nb_joueurs): # type: ignore
+def game_Selection(nb_joueurs:int): # type: ignore
     jeux_possible = []
-    while i < len(jeux):
-        if i[2] >=  nb_joueurs:
-            jeux_possible.append(i-2)
-            i+3
-        else:
-            i+3
-    print(jeux_possible)
+    for i in range(0, len(jeux)):
+        if jeux[i][2] >=  nb_joueurs:
+            jeux_possible.append(jeux[i][0])
+    for j in range(len(jeux_possible)):
+        print(jeux_possible[j])
     return jeux_possible
 
 
 nbj = int(input("Entrez le nombre de joueurs: "))
+print()
 game_Selection(nbj)
+print()
