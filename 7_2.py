@@ -86,6 +86,4 @@ def initialiser():
     # Lancer la partie de pendu
     jouer(mot_choisi)
 
-# Lancer le jeu
-if __name__ == "__main__":
-    initialiser()
+initialiser()
