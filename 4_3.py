@@ -1,18 +1,12 @@
-lst = []
-
-def listToTuple():
-    global lst
+def listToTuple(lst:list):
     try:
-        nmb = int(input("Entrez un nombre: "))
-        if nmb >= 0:
-            lst.append(nmb)
-            listToTuple()
-        else:
-            lst = tuple(lst)
-            print("\n", lst)
-            return lst
+        lst = tuple(lst)
+        print("\n", lst)
+        return lst
     except ValueError:
-        print("Vous devez entrer un nombre entier.")
+        print("Vous devez entrer une liste")
         listToTuple()
 
-listToTuple()
+assert listToTuple([]) == ()
+assert listToTuple([5]) == (5,)
+assert listToTuple([5,9,2,4]) == (5,9,2,4)

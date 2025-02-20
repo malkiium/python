@@ -1,6 +1,4 @@
-txt = str(input(" : "))
-
-def texCounter(txt: str):
+def decomposer(txt: str):
     count_dict = {}
     for char in txt:
         if char in count_dict:
@@ -12,4 +10,8 @@ def texCounter(txt: str):
     print(caracter)
     return caracter
 
-texCounter(txt)
+assert decomposer("bonjour") == [('b',1),('o',2),('n',1),('j',1),('u',1),('r',1)]
+assert decomposer("abcd") == [('a',1),('b',1),('c',1),('d',1)]
+assert decomposer("aa bb c") == [('a',2),(' ',2),('b',2),('c',1)]
+assert decomposer("aaa") == [('a',3)]
+assert decomposer("") == []

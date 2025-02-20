@@ -1,15 +1,16 @@
-def trouver_indice(element, tuple_entiers):
+def indiceOccurenceElem(element, tuple_entiers):
     try:
         indice = tuple_entiers.index(element)
     except ValueError:
         indice = -1
 
-    print(f"Élément à rechercher: {element_a_rechercher}")
-    print(f"Tuple d'entiers: {tuple_d_entiers}")
+    print(f"Élément à rechercher: {element}")
+    print(f"Tuple d'entiers: {tuple_entiers}")
     print(f"Résultat de la recherche: {indice}")
+    print()
     return indice
 
-element_a_rechercher = 9
-tuple_d_entiers = (1, 2, 3, 4, 5, 6, 7, 8, 9)
-
-resultat = trouver_indice(element_a_rechercher, tuple_d_entiers)
+tup1 = (1,5,4,10)
+assert indiceOccurenceElem(5,tup1) == 1
+assert indiceOccurenceElem(12,tup1) == -1
+assert indiceOccurenceElem(10,tup1) == 3

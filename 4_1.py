@@ -3,7 +3,7 @@ def nearest_tens(number):
     Tens = (number // 10) * 10
     
     # Check if the number is closer to the lower or upper multiple of 10
-    if number / 10 >= Tens:
+    if number / 10 > Tens:
         # If the number is closer to the lower multiple of 10
         upperTens = Tens
         lowerTens = Tens - 10
