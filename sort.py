@@ -1,3 +1,6 @@
+import time
+import random
+
 def quicksort(arr):
     if len(arr) <= 1:
         return arr
@@ -7,8 +10,12 @@ def quicksort(arr):
     right = [x for x in arr if x > pivot]
     return quicksort(left) + middle + quicksort(right)
 
-
-arr = [3, 6, 8, 10, 1, 2, 1]
+arr = [random.randint(0, 1000) for i in range(1000)]
 print("Original array:", arr)
+
+start_time = time.time()
 sorted_arr = quicksort(arr)
-print("Sorted array:", sorted_arr)
+end_time = time.time()
+
+print("\n\n Sorted array:", sorted_arr)
+print(f"\nTime taken: {(end_time - start_time) * 1000:.3f} milliseconds")
