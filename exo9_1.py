@@ -33,12 +33,9 @@ class Chien:
         return mot[:-1]
     
     def aboie(self, nb_fois:int):
-        return "Ouaf" * nb_fois
+        return "Ouaf " * nb_fois
     
     def mange(self, ration:float):
         if 0 < ration <= self.poids/10:
             self.poids += ration
             return True
-
-
-mon_chien = Chien("Rex", 20)
