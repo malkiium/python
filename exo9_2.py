@@ -24,3 +24,66 @@ celui-ci est effectivement supprimé, la méthode renvoie True.
 On inclut là-aussi aussi deux méthodes permettant d'afficher le train dans la console ou sous forme
 d'une chaîne de caractères. """
 
+class Wagon:
+    def __init__(self, contenu):
+        self.contenu = contenu
+        self.suivant = None
+    def __str__(self):
+        return self.contenu
+    def __repr__(self):
+        return self.contenu
+
+
+class Train:
+    def __init__(self):
+        self.premier = None
+        self.nb_wagons = 0
+    def est_vide(self):
+        return self.premier is None
+    def donne_nb_wagons(self):
+        return self.nb_wagons
+    def transporte_du(self, contenu):
+        wagon = self.premier
+        while wagon is not None:
+            if wagon.contenu == contenu:
+                return True
+            wagon = wagon.suivant
+        return False
+    def ajoute_wagon(self, wagon):
+        if self.premier is None:
+            self.premier = wagon
+        else:
+            dernier = self.premier
+            while dernier.suivant is not None:
+                dernier = dernier.suivant
+            dernier.suivant = wagon
+        self.nb_wagons += 1
+    def supprime_wagon_de(self, contenu):
+        if self.premier is None:
+            return False
+        if self.premier.contenu == contenu:
+            self.premier = self.premier.suivant
+            self.nb_wagons -= 1
+            return True
+        precedent = self.premier
+        wagon = precedent.suivant
+        while wagon is not None:
+            if wagon.contenu == contenu:
+                precedent.suivant = wagon.suivant
+                self.nb_wagons -= 1
+                return True
+            precedent = wagon
+            wagon = wagon.suivant
+        return False
+    def __str__(self):
+        if self.premier is None:
+            return "Train vide"
+        wagon = self.premier
+        chaine = "Locomotive - " + str(wagon)
+        wagon = wagon.suivant
+        while wagon is not None:
+            chaine += " - " + str(wagon)
+            wagon = wagon.suivant
+        return chaine
+    def __repr__(self):
+        return str(self)
