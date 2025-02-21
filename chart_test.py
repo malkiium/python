@@ -14,8 +14,17 @@ import matplotlib.pyplot as plt # type: ignore
 import numpy as np # type: ignore
 
 # Generate more complex data
-x = np.linspace(0, 10, 100)  # 100 points between 0 and 10
-y = np.sin(x) + np.random.normal(0, 0.1, size=x.shape)  # Sine wave with noise
+x = np.linspace(0, 20, 1000)  # 1000 points between 0 and 20
+
+# Complex y-axis data combining several functions
+y1 = np.sin(x)               # Sine wave
+y2 = np.cos(2 * x)          # Cosine wave with double frequency
+y3 = 0.5 * np.sin(0.5 * x)  # Low-frequency sine wave
+y4 = np.exp(-0.1 * x) * np.sin(5 * x)  # Damped sine wave
+y5 = 0.1 * np.random.normal(size=x.shape)  # Random noise
+
+# Combine all the data
+y = y1 + y2 + y3 + y4 + y5
 
 # Create the plot
 plt.plot(x, y, label='Sine wave with noise', color='blue')
