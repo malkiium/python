@@ -1,3 +1,8 @@
+# This script simulates a vending machine that accepts money and returns change.
+# The machine has a limited amount of bills and coins, and it will return the exact change if possible.
+# If the machine cannot return the exact change, it will return the amount given by the user.
+
+# Initial amounts and prices of bills and coins
 billets_amt = 20
 billets_prix = 5
 pieces_amt = 100
@@ -14,13 +19,16 @@ def distrib():
         prix = int(input("quel est le prix de l'item ? : "))
         donner = int(input("monter donner a la machine ? :"))
 
+        # Ensure the given amount is sufficient
         while donner < prix:
             insf = int(input("le montant est insufisant. donner plus : "))
             donner = int((insf+donner))
+        
         if donner > prix:
             a_rendre = donner - prix
             print("le montant a rendre : " + str(a_rendre))
 
+            # Check if the machine can return the exact amount
             if a_rendre > ((billets_prix*billets_amt) + (pieces_amt*piece_prix)):
                 print("la machine ne peut pas vous redoner le montant exacte. elle vous redonne ce que vous lui avez donner.")
                 print("la machine vous a rendu :" + str(donner))
@@ -28,9 +36,9 @@ def distrib():
                 a_rendre = 0
                 distrib()
 
-
+        # Return the change
         while a_rendre > 0:
-            if a_rendre>= billets_prix and billets_amt > 0:
+            if a_rendre >= billets_prix and billets_amt > 0:
                 a_rendre -= billets_prix
                 billets_amt -= 1
                 billets_rendu += 1
@@ -39,7 +47,8 @@ def distrib():
                 pieces_amt -= 1
                 pieces_rendu += 1
 
-        print("montant rendu : " + str(billets_rendu) + " x " + str(billets_prix) + "billets. et, " + str(pieces_rendu) + " x " + str(piece_prix) + "pieces")
+        print("montant rendu : " + str(billets_rendu) + " x " + str(billets_prix) + " billets. et, " + str(pieces_rendu) + " x " + str(piece_prix) + " pieces")
+    
     print("il n'y a plus d'argent dans la caisse.")
 
 distrib()
