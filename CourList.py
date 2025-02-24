@@ -66,5 +66,37 @@ if list1 is list3:
     print("\n list1 is list3")
 else:
     print("\n list1 is not list3")
+print()
+
+
+print("les matrices")
+# 3 garons
+# 2 filles
+# 2 filles, 2 garcons
+# personne
+# 5 garcons
+matrix = [['G', 'G', 'G', '', ''], ['F', 'F', '', '', ''], ['F', 'F', '','G', 'G'], ['', '', '', '', ''], ['G', 'G', 'G', 'G', 'G']]
+for i in range(len(matrix)):
+    print(matrix[i])
+    print()
+print(len(matrix[len(matrix)-1])) # prints the length of the last list in the matrix
+print(len(matrix)) # prints the length of the matrix
+# Iterate over each row in the matrix
+for i in range(len(matrix)):
+    # Initialize a dictionary to count boys (garcons), girls (filles), and empty spaces (vide)
+    pers = {"garcons": 0, "filles": 0, "vide": 0}
+    # Iterate over each element in the current row
+    for j in range(len(matrix[i])):
+        # If the element is 'G', increment the count of boys
+        if matrix[i][j] == 'G':
+            pers["garcons"] += 1
+        # If the element is 'F', increment the count of girls
+        elif matrix[i][j] == 'F':
+            pers["filles"] += 1
+        # If the element is empty, increment the count of empty spaces
+        else:
+            pers["vide"] += 1
+    # Print the count of boys, girls, and empty spaces for the current row
+    print(pers)
 
 
