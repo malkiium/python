@@ -81,6 +81,7 @@ for i in range(len(matrix)):
     print()
 print(len(matrix[len(matrix)-1])) # prints the length of the last list in the matrix
 print(len(matrix)) # prints the length of the matrix
+
 # Iterate over each row in the matrix
 for i in range(len(matrix)):
     # Initialize a dictionary to count boys (garcons), girls (filles), and empty spaces (vide)
@@ -99,4 +100,17 @@ for i in range(len(matrix)):
     # Print the count of boys, girls, and empty spaces for the current row
     print(pers)
 
-
+# Iterate over each row in the matrix
+for i in range(len(matrix)):
+    print()  # Print a newline for better readability
+    # Iterate over each element in the current row
+    for j in range(len(matrix[i])):
+        # If the element is 'G', print 'G'
+        if matrix[i][j] == 'G':
+            print("G", end=" ")
+        # If the element is 'F', print 'F'
+        elif matrix[i][j] == 'F':
+            print("F", end=" ")
+        # If the element is empty, print '-'
+        else:
+            print("-", end=" ")
