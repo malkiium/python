@@ -114,3 +114,11 @@ for i in range(len(matrix)):
         # If the element is empty, print '-'
         else:
             print("-", end=" ")
+
+print ()
+print() 
+
+ch1 = "helllllo"
+print(ch1.index("l")) # prints the index of the first 'l' in the string
+print(ch1.count("l")) # prints the number of 'l' in the string
+print(ch1.find("l")) # prints the index of the first 'l' in the string
