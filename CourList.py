@@ -43,3 +43,28 @@ E = map(anyfunction, li2) # map lets you apply a function to a list and use it a
 print("\n E without list info", E)
 E = list(E)
 print("\n with list info", E)
+
+list1 = []
+list2 = []
+list3 = list1
+if list1 == list2:
+    print("\n list1 == list2")
+else:
+    print("\n list1 != list2")
+
+if list1 is list2:
+    print("\n list1 is list2") # this is false because list1 and list2 are 2 different places in the memory even if they have the same data
+else:
+    print("\n list1 is not list2")
+
+if list1 == list3:
+    print("\n list1 == list3")
+else:
+    print("\n list1 != list3")
+
+if list1 is list3:
+    print("\n list1 is list3")
+else:
+    print("\n list1 is not list3")
+
+
