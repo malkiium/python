@@ -1,35 +1,45 @@
 ll = [x for x in range(0,7)]
 print("\n list creation", ll)
 
+print("----------------------------------------------------------------------------------")
 ll.append(45) # adds to the end
 print("\n append", ll)
 
+print("----------------------------------------------------------------------------------")
 ll.append(23)
 print("\n append", ll)
 
+print("----------------------------------------------------------------------------------")
 ll.extend([56,43]) # adds this sublist to the list
 print("\n extend", ll)
 
+print("----------------------------------------------------------------------------------")
 ll.insert(6, 5) # adds 5 at index 6 in the list
 print("\n insert", ll)
+
 
 # copy only makes a duplicate of the list, but the list's data has the same reference.
 # changing one list's content changes the other
 ll2 = ll.copy()
 
+print("----------------------------------------------------------------------------------")
 ll2.sort() # organizes the list in ascending order, SUPER USEFUL
 print("\n sort", ll2)
 print(ll) # verifies that ll was not sorted
 
+print("----------------------------------------------------------------------------------")
 lltri = list(sorted(ll)) # creates a sorted list in a new list, without sorting the original list
 print("\n lltri", lltri)
 
+print("----------------------------------------------------------------------------------")
 ll2.reverse() # reverses the list
 print("\n reverse", ll2)
 
+print("----------------------------------------------------------------------------------")
 ll2.clear()
 print("\n clear", ll2)
 
+print("----------------------------------------------------------------------------------")
 li2 = [a for a in range(0,5)]
 print("\n li2", li2)
 for i in range(len(li2)): # this needs a list with data INSIDE IT, an empty list = no go
@@ -39,11 +49,13 @@ print("\n for loop with lists", li2)
 def anyfunction(x: float):
     return 2*x
 
+print("----------------------------------------------------------------------------------")
 E = map(anyfunction, li2) # map lets you apply a function to a list and use it as a variable
 print("\n E without list info", E)
-E = list(E)
+E = list(map(anyfunction, li2)) # map lets you apply a function to a list and use it as a variable
 print("\n with list info", E)
 
+print("----------------------------------------------------------------------------------")
 list1 = []
 list2 = []
 list3 = list1
@@ -68,14 +80,18 @@ else:
     print("\n list1 is not list3")
 print()
 
-
+print("----------------------------------------------------------------------------------")
 print("les matrices")
 # 3 garons
 # 2 filles
 # 2 filles, 2 garcons
 # personne
 # 5 garcons
-matrix = [['G', 'G', 'G', '', ''], ['F', 'F', '', '', ''], ['F', 'F', '','G', 'G'], ['', '', '', '', ''], ['G', 'G', 'G', 'G', 'G']]
+matrix = [['G', 'G', 'G', '', ''], 
+        ['F', 'F', '', '', ''], 
+        ['F', 'F', '','G', 'G'], 
+        ['', '', '', '', ''], 
+        ['G', 'G', 'G', 'G', 'G']]
 for i in range(len(matrix)):
     print(matrix[i])
     print()
@@ -122,3 +138,5 @@ ch1 = "helllllo"
 print(ch1.index("l")) # prints the index of the first 'l' in the string
 print(ch1.count("l")) # prints the number of 'l' in the string
 print(ch1.find("l")) # prints the index of the first 'l' in the string
+
+print("----------------------------------------------------------------------------------")
