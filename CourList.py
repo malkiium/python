@@ -75,7 +75,11 @@ print("les matrices")
 # 2 filles, 2 garcons
 # personne
 # 5 garcons
-matrix = [['G', 'G', 'G', '', ''], ['F', 'F', '', '', ''], ['F', 'F', '','G', 'G'], ['', '', '', '', ''], ['G', 'G', 'G', 'G', 'G']]
+matrix = [['G', 'G', 'G', '', ''], 
+        ['F', 'F', '', '', ''], 
+        ['F', 'F', '','G', 'G'], 
+        ['', '', '', '', ''], 
+        ['G', 'G', 'G', 'G', 'G']]
 for i in range(len(matrix)):
     print(matrix[i])
     print()
