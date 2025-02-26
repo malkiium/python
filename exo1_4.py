@@ -53,4 +53,4 @@ while True:
     pygame.display.update()
     
     # Control the frame rate
-    tps.tick(10)
+    tps.tick(1)
