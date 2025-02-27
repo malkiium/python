@@ -1,5 +1,3 @@
-import random
-
 def fusion(numbs1:list, numbs2:list):
     numbs1.sort()
     numbs2.sort()

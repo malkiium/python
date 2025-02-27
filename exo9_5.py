@@ -74,12 +74,12 @@ class Bibliotheque:
     def rechercherTitre(self, titre):
         for livre in self.livres:
             if livre.get_titre().lower() == titre.lower():
-                return livre
+                return str(livre)  # Retourne la représentation en chaîne de caractères
         return None
 
     def rechercherMot(self, mot):
         mot = mot.lower()
-        return {livre for livre in self.livres if mot in livre.get_titre().lower()}
+        return {livre.get_titre() for livre in self.livres if mot in livre.get_titre().lower()}
 
     def rechercherAuteur(self, nom, prenom):
         return {livre for livre in self.livres if livre.get_auteur() == Auteur(nom, prenom)}
@@ -96,26 +96,27 @@ class Bibliotheque:
 # --- TEST DU PROGRAMME ---
 
 # Création des auteurs
+# --- Création des auteurs ---
 auteur1 = Auteur("Hugo", "Victor")
 auteur2 = Auteur("Camus", "Albert")
 auteur3 = Auteur("Zola", "Émile")
 auteur4 = Auteur("Süskind", "Patrick")
 auteur5 = Auteur("Goscinny", "René")
 
-# Création des livres
+# --- Création des livres ---
 livre1 = Livre("Les Misérables", auteur1)
 livre2 = Livre("L'Étranger", auteur2)
 livre3 = Livre("Germinal", auteur3)
 livre4 = Livre("Le Parfum", auteur4)
 livre5 = Livre("Notre-Dame de Paris", auteur1)
 
-# Création de bandes dessinées
+# --- Création des bandes dessinées ---
 bd1 = BD("Astérix et Obélix", auteur5, "Uderzo")
 bd2 = BD("Lucky Luke", auteur5, "Morris")
 bd3 = BD("Tintin au Tibet", Auteur("Hergé", ""), "Hergé")
 bd4 = BD("Astérix et Obélix", auteur5, "Uderzo")  # Doublon
 
-# Création de la bibliothèque et ajout des livres/BD
+# --- Création de la bibliothèque et ajout des livres/BD ---
 biblio = Bibliotheque()
 biblio.ajouter(livre1)
 biblio.ajouter(livre2)
