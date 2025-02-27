@@ -10,7 +10,8 @@ def permEtDern(find:int, l1:list):
         if l1[i] == find:
             last_index = len(l1) - (i+1)
             break
-
+    
+    print(first_index, last_index)
     return [first_index, last_index]
 
 
