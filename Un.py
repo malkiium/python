@@ -1,5 +1,3 @@
-import math
-
 Un = -5/3
 Un1 = 0
 
