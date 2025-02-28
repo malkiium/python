@@ -1,59 +1,48 @@
-import tkinter as tk
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.textinput import TextInput
+from kivy.uix.button import Button
+from kivy.uix.label import Label
 import pyttsx3
 
-def get_english_voice():
-    """Automatically selects an English voice (US or UK) if available."""
-    engine = pyttsx3.init()
-    voices = engine.getProperty('voices')
-    for voice in voices:
-        if "english" in voice.name.lower():
-            return voice.id  # Return first English voice found
-    return None  # Default to system voice if no English voice found
+class TTSApp(App):
+    def build(self):
+        # Set up the main layout
+        self.layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
+        
+        # Title Label
+        self.title_label = Label(text="My TTS", font_size=32, color=(1, 1, 1, 1))
+        self.layout.add_widget(self.title_label)
 
-def speak_text():
-    text = text_box.get("1.0", tk.END).strip()
-    if text:
-        engine = pyttsx3.init()
-        english_voice = get_english_voice()
-        if english_voice:
-            engine.setProperty('voice', english_voice)  # Set English voice
-        engine.say(text)
-        engine.runAndWait()
+        # Instruction Label
+        self.instruction_label = Label(text="Type your entry below:", font_size=20, color=(1, 1, 1, 1))
+        self.layout.add_widget(self.instruction_label)
 
-# Create the main window
-root = tk.Tk()
-root.title("Journal TTS Bot")
-root.geometry("300x300")  
-root.minsize(200, 200)  
-root.configure(bg="#2e2a28")  # Dark theme
+        # TextInput for journal entries
+        self.text_box = TextInput(size_hint_y=None, height=300, multiline=True, font_size=20)
+        self.layout.add_widget(self.text_box)
 
-# Configure grid layout
-root.grid_rowconfigure(2, weight=1)  
-root.grid_columnconfigure(0, weight=1)
+        # Speak Button
+        self.speak_button = Button(text="Speak", on_press=self.speak_text, font_size=20)
+        self.layout.add_widget(self.speak_button)
 
-# Title label
-title_label = tk.Label(root, text="My TTS", bg="#2e2a28",
-    font=("Georgia", 20, "bold"), fg="#e0d6c9")
-title_label.grid(row=0, column=0, pady=(10, 5), sticky="n")
+        return self.layout
 
-# Instruction label
-instruction_label = tk.Label(root, text="Type your entry below:", bg="#2e2a28",
-    font=("Georgia", 14), fg="#c5b9ae")
-instruction_label.grid(row=1, column=0, pady=(0, 10), sticky="n")
+    def speak_text(self, instance):
+        # Get the text from the TextInput and remove any extra spaces
+        text = self.text_box.text.strip()
+        if text:
+            # Initialize the TTS engine
+            engine = pyttsx3.init()
+            # Set English voice (US/UK)
+            voices = engine.getProperty('voices')
+            for voice in voices:
+                if "english" in voice.name.lower():
+                    engine.setProperty('voice', voice.id)  # Set English voice
+                    break
+            # Speak the text
+            engine.say(text)
+            engine.runAndWait()
 
-# Text box (dark theme)
-text_box = tk.Text(root, font=("Times New Roman", 12), bg="#3b3633", fg="#e0d6c9",
-    insertbackground="#e0d6c9", bd=2, relief="groove", wrap="word")
-text_box.grid(row=2, column=0, sticky="nsew", padx=10, pady=10)
-
-# Button frame
-button_frame = tk.Frame(root, bg="#2e2a28")
-button_frame.grid(row=3, column=0, pady=10, sticky="s")
-
-# Speak button (dark theme)
-speak_button = tk.Button(button_frame, text="Speak", command=speak_text,
-    font=("Georgia", 14), bg="#715b51", fg="#e0d6c9",
-    activebackground="#8a7568", bd=2, relief="raised")
-speak_button.pack()
-
-root.mainloop()
+if __name__ == '__main__':
+    TTSApp().run()
