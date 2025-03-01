@@ -4,7 +4,7 @@ import os
 import datetime
 
 # Directory where journal entries are stored
-JOURNAL_DIR = "journal_entries"
+JOURNAL_DIR = r"C:\Users\eliha\vsc\cove\python\journal_entries"
 if not os.path.exists(JOURNAL_DIR):
     os.makedirs(JOURNAL_DIR)
 
