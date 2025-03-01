@@ -124,15 +124,29 @@ def lister_livres_empruntes():
 def ajouter_livre():
     titre = input("Titre du livre : ")
     annee = input("Année de sortie : ")
+
+    # Display available authors
     print("Liste des auteurs disponibles :")
     query = "SELECT idAuteur, nom, prenom FROM Auteurs"
     for row in cur.execute(query):
         print(row)
+
     auteur_id = input("Entrez l'id de l'auteur : ")
-    query = "INSERT INTO Livres (titre, annee, auteur) VALUES (?, ?, ?)"
-    cur.execute(query, (titre, annee, auteur_id))
-    con.commit()
-    print("Livre ajouté.")
+
+    # Check if the author ID exists in the Auteurs table
+    query = "SELECT COUNT(*) FROM Auteurs WHERE idAuteur = ?"
+    cur.execute(query, (auteur_id,))
+    count = cur.fetchone()[0]
+
+    if count == 0:
+        print("L'ID de l'auteur n'existe pas dans la base de données. Veuillez essayer un ID valide.")
+    else:
+        # Insert the book if the author ID is valid
+        query = "INSERT INTO Livres (titre, annee, auteur) VALUES (?, ?, ?)"
+        cur.execute(query, (titre, annee, auteur_id))
+        con.commit()
+        print("Livre ajouté.")
+
 
 
 def ajouter_auteur():
