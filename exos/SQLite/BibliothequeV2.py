@@ -346,6 +346,50 @@ def check_book_status():
     book_entry.pack()
     ttk.Button(status_window, text="Vérifier", command=submit).pack()
 
+def Supprimer_Auteur():
+    def submit():
+        cur.execute("DELETE FROM Auteurs WHERE idAuteur = ?", (author_entry.get(),))
+        con.commit()
+        messagebox.showinfo("Succès", "Auteur supprimé !")
+        author_window.destroy()
+    
+    author_window = tk.Toplevel(root)
+    author_window.title("Supprimer Auteur")
+    ttk.Label(author_window, text="ID Auteur:").pack()
+    author_entry = ttk.Entry(author_window)
+    author_entry.pack()
+    ttk.Button(author_window, text="Supprimer", command=submit).pack()
+
+def Supprimer_Livre():
+    def submit():
+        cur.execute("DELETE FROM Livres WHERE idLivre = ?", (book_entry.get(),))
+        con.commit()
+        messagebox.showinfo("Succès", "Livre supprimé !")
+        book_window.destroy()
+    
+    book_window = tk.Toplevel(root)
+    book_window.title("Supprimer Livre")
+    ttk.Label(book_window, text="ID Livre:").pack()
+    book_entry = ttk.Entry(book_window)
+    book_entry.pack()
+    ttk.Button(book_window, text="Supprimer", command=submit).pack()
+
+def Supprimer_Abonne():
+    def submit():
+        cur.execute("DELETE FROM Abonnes WHERE idAbonne = ?", (subscriber_entry.get(),))
+        con.commit()
+        messagebox.showinfo("Succès", "Abonné supprimé !")
+        subscriber_window.destroy()
+    
+    subscriber_window = tk.Toplevel(root)
+    subscriber_window.title("Supprimer Abonné")
+    ttk.Label(subscriber_window, text="ID Abonné:").pack()
+    subscriber_entry = ttk.Entry(subscriber_window)
+    subscriber_entry.pack()
+    ttk.Button(subscriber_window, text="Supprimer", command=submit).pack()
+
+
+
 # Update Buttons to include new actions
 buttons.extend([
     ("Ajouter Emprunt", add_loan),
@@ -376,6 +420,9 @@ buttons = [
     ("Ajouter Abonné", add_subscriber),
     ("Ajouter Emprunt", add_loan),
     ("Supprimer Emprunt", remove_loan),
+    ('Supprimer Auteur', Supprimer_Auteur),
+    ('supprimer Livre', Supprimer_Livre),
+    ('supprimer Abonné', Supprimer_Abonne),
     ("Informations Livre par Titre", book_info_by_title),
     ("Livres par Année", books_by_year),
     ("Livres par Auteur", books_by_author),
