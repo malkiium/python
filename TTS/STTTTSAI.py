@@ -30,15 +30,23 @@ class STTApp:
         if english_voice:
             self.tts_engine.setProperty('voice', english_voice)
         
-        # Tkinter UI setup
-        self.start_button = tk.Button(root, text="Start Listening", command=self.start_listening, bg="green", fg="white")
+                # Enable Dark Mode
+        self.root.configure(bg="#121212")
+
+        # Update Button Styles
+        self.start_button = tk.Button(root, text="Start Listening", command=self.start_listening,
+            bg="#1E1E1E", fg="white", activebackground="#333333", activeforeground="white")
         self.start_button.pack(pady=10)
-        
-        self.stop_button = tk.Button(root, text="Stop Listening", command=self.stop_listening, bg="red", fg="white", state=tk.DISABLED)
+
+        self.stop_button = tk.Button(root, text="Stop Listening", command=self.stop_listening,
+            bg="#1E1E1E", fg="white", activebackground="#333333", activeforeground="white", state=tk.DISABLED)
         self.stop_button.pack(pady=10)
-        
-        self.text_display = tk.Text(root, height=10, width=50)
+
+        # Update Text Widget Styles
+        self.text_display = tk.Text(root, height=10, width=50, bg="#1E1E1E", fg="white",
+            insertbackground="white", wrap=tk.WORD)
         self.text_display.pack(pady=10)
+
         
         self.stop_listening_function = None
         
