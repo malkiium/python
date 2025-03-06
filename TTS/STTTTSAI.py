@@ -30,7 +30,7 @@ class STTApp:
         if english_voice:
             self.tts_engine.setProperty('voice', english_voice)
         
-                # Enable Dark Mode
+        # Enable Dark Mode
         self.root.configure(bg="#121212")
 
         # Update Button Styles
@@ -158,7 +158,7 @@ class STTApp:
         self.stop_button.config(state=tk.DISABLED)
         self.text_display.insert(tk.END, "\nStopped listening.\n")
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = STTApp(root)
-    root.mainloop()
+
+root = tk.Tk()
+app = STTApp(root)
+root.mainloop()
