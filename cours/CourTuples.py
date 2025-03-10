@@ -41,3 +41,9 @@ print(tuple2)  # Output: (1, 2, 3, 4, 5, 6)
 list2.remove(3)
 tuple2 = tuple(list2)
 print(tuple2)  # Output: (1, 2, 4, 5, 6)
+
+print("----------------------------------------------------------------------------------")
+#you can concatenate tuples, like lists.
+tupleConcat = tuple2 + tuple3
+print(tupleConcat)
+
