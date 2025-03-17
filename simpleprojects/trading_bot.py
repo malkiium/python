@@ -3,18 +3,22 @@ import pandas as pd
 import time
 import logging
 import backtrader as bt
+import json
 
-# === CONFIGURATION ===
-API_KEY = "your_api_key"
-API_SECRET = "your_api_secret"
-SYMBOL = "BTC/USDT"
-TIMEFRAME = "5m"
-MA_SHORT = 9
-MA_LONG = 21
-TRADE_AMOUNT = 0.001  # BTC
-STOP_LOSS_PERCENT = 0.02  # 2% stop loss
-TAKE_PROFIT_PERCENT = 0.04  # 4% take profit
-LIVE_TRADING = False  # Set to True for real trades
+# === LOAD CONFIGURATION ===
+with open("config.json", "r") as file:
+    config = json.load(file)
+
+API_KEY = config["api_key"]
+API_SECRET = config["api_secret"]
+SYMBOL = config["symbol"]
+TIMEFRAME = config["timeframe"]
+MA_SHORT = config["ma_short"]
+MA_LONG = config["ma_long"]
+TRADE_AMOUNT = config["trade_amount"]
+STOP_LOSS_PERCENT = config["stop_loss_percent"]
+TAKE_PROFIT_PERCENT = config["take_profit_percent"]
+LIVE_TRADING = config["live_trading"]
 
 # === SETUP LOGGING ===
 logging.basicConfig(filename="trading_bot.log", level=logging.INFO, format="%(asctime)s - %(message)s")
