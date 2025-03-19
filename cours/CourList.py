@@ -33,6 +33,7 @@ print("\n lltri", lltri)
 
 print("----------------------------------------------------------------------------------")
 ll2.reverse() # reverses the list
+ll2 = ll2[::-1] # another way to reverse the list
 print("\n reverse", ll2)
 
 print("----------------------------------------------------------------------------------")
