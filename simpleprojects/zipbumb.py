@@ -2,10 +2,10 @@ import zipfile
 import os
 
 # Configuration
-NUM_FILES_PER_ZIP = 10    # How many big files per ZIP
-FILE_SIZE_GB = 2          # Size of each file in GB
-NUM_ZIPS_PER_LAYER = 5   # How many ZIPs inside each layer
-NUM_LAYERS = 2            # How deep the recursion goes
+NUM_FILES_PER_ZIP = 10     # How many big files per ZIP
+FILE_SIZE_GB = 10          # Size of each file in GB
+NUM_ZIPS_PER_LAYER = 10    # How many ZIPs inside each layer
+NUM_LAYERS = 10            # How deep the recursion goes
 
 # Function to create a large dummy file (filled with zeros for high compression)
 def create_large_file(filename, size_gb):
