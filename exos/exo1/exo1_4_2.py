@@ -5,5 +5,5 @@ for i in range(taille):
         if (i+j) % 2 == 0:
             print("X", end=" ")
         else:
-            print("O", end=" ")
+            print("_", end=" ")
     print()
