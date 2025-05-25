@@ -72,3 +72,26 @@ del allistair["ville"]
 allistair["ville"] = "paris"
 for key, value in allistair.items():
     print(key, ":", value)
+
+
+
+
+
+
+
+
+
+
+
+print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+
+
+
+
+
+
+
+
+
+
+
