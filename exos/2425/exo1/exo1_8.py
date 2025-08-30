@@ -11,4 +11,4 @@ for a in range(10):
                     print(a, b, "+", c, d, "=" ,b, c)
                     j += 1
 
-print("Nombre de combinations qui fonctionnent:", j)
+print("number of functioning combinations:", j)
