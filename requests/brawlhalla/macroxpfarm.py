@@ -1,190 +1,71 @@
-import pyautogui
-import keyboard
 import time
+import keyboard
+import mouse  # pip install mouse
+import threading
 
-running = False
+# --- Load macro ---
+macro_file = r"C:\Users\eliha\vsc\python\requests\brawlhalla\recorded_keyboard_macro.py"
+macro_sequence = []
+with open(macro_file, "r") as f:
+    exec(f.read())  # defines macro_sequence
 
-def toggle():
-    global running
-    running = not running
-    print("Loop", "started" if running else "stopped")
+print("Replaying macro in 3 seconds... (One-shot test run)")
+time.sleep(3)
 
-# SPACE toggles on/off
-keyboard.add_hotkey("space", toggle)
+MIN_PRESS_TIME = 0.01  # 10 ms
+MIN_BETWEEN_SAME_KEYS = 0.01  # 10 ms
 
-print("Press SPACE to toggle the loop. Press ESC to quit.")
-
-while True:
-    if running:
-        # Example: click screen center
-        w, h = pyautogui.size()
-        # Recorded macro
-
-        # Recording ON
-        pyautogui.click(w*3/17, h*37/70), time.sleep(0.3)
-        pyautogui.click(w*12/41, h*13/22), time.sleep(0.3)
-        pyautogui.click(w*41/90, h*22/45), time.sleep(0.3)
-        pyautogui.click(w*27/83, h*5/83), time.sleep(0.3)
-        pyautogui.click(w*3/8, h*11/50), time.sleep(0.3)
-        pyautogui.click(w*29/64, h*23/98), time.sleep(0.3)
-        pyautogui.click(w*9/17, h*13/22), time.sleep(0.3)
-        pyautogui.click(w*11/21, h*13/22), time.sleep(0.3)
-        pyautogui.click(w*11/21, h*13/22), time.sleep(0.3)
-        pyautogui.click(w*11/21, h*13/22), time.sleep(0.3)
-        pyautogui.click(w*11/21, h*13/22), time.sleep(0.3)
-        pyautogui.click(w*11/21, h*13/22), time.sleep(0.3)
-        pyautogui.click(w*11/21, h*13/22), time.sleep(0.3)
-        pyautogui.click(w*10/19, h*51/86), time.sleep(0.3)
-        pyautogui.click(w*10/19, h*51/86), time.sleep(0.3)
-        pyautogui.click(w*10/19, h*51/86), time.sleep(0.3)
-        pyautogui.click(w*49/93, h*51/86), time.sleep(0.3)
-        pyautogui.click(w*49/93, h*51/86), time.sleep(0.3)
-        pyautogui.click(w*49/93, h*51/86), time.sleep(0.3)
-        pyautogui.click(w*49/93, h*51/86), time.sleep(0.3)
-        pyautogui.click(w*29/55, h*51/86), time.sleep(0.3)
-        pyautogui.click(w*29/55, h*51/86), time.sleep(0.3)
-        pyautogui.click(w*29/55, h*19/32), time.sleep(0.3)
-        pyautogui.click(w*29/55, h*19/32), time.sleep(0.3)
-        pyautogui.click(w*29/55, h*19/32), time.sleep(0.3)
-        pyautogui.click(w*29/55, h*19/32), time.sleep(0.3)
-        pyautogui.click(w*47/89, h*21/38), time.sleep(0.3)
-        pyautogui.click(w*47/89, h*21/38), time.sleep(0.3)
-        pyautogui.click(w*47/89, h*21/38), time.sleep(0.3)
-        pyautogui.click(w*44/83, h*89/97), time.sleep(0.3)
-        pyautogui.click(w*44/83, h*89/97), time.sleep(0.3)
-        pyautogui.click(w*44/83, h*89/97), time.sleep(0.3)
-        pyautogui.click(w*47/83, h*5/47), time.sleep(0.3)
-        pyautogui.click(w*41/77, h*23/57), time.sleep(0.3)
-        pyautogui.click(w*46/87, h*31/72), time.sleep(0.3)
-        pyautogui.click(w*49/93, h*53/91), time.sleep(0.3)
-        pyautogui.click(w*19/39, h*23/24), time.sleep(0.3)
-        pyautogui.click(w/80, h*23/91), time.sleep(0.3)
-        pyautogui.click(w*2/85, h*21/82), time.sleep(0.3)
-        pyautogui.click(w*6/47, h*27/86), time.sleep(0.3)
-        pyautogui.click(w*6/47, h*27/86), time.sleep(0.3)
-        pyautogui.click(w*6/47, h*27/86), time.sleep(0.3)
-        pyautogui.click(w*6/47, h*27/86), time.sleep(0.3)
-        pyautogui.click(w*6/47, h*27/86), time.sleep(0.3)
-        pyautogui.click(w*3/22, h*23/68), time.sleep(0.3)
-        pyautogui.click(w*3/22, h*23/68), time.sleep(0.3)
-        pyautogui.click(w*4/31, h*33/98), time.sleep(0.3)
-        pyautogui.click(w*4/31, h*33/98), time.sleep(0.3)
-        pyautogui.click(w*4/31, h*33/98), time.sleep(0.3)
-        pyautogui.click(w*4/31, h*33/98), time.sleep(0.3)
-        pyautogui.click(w*4/31, h*33/98), time.sleep(0.3)
-        pyautogui.click(w*4/31, h*33/98), time.sleep(0.3)
-        pyautogui.click(w*4/31, h*33/98), time.sleep(0.3)
-        pyautogui.click(w*4/31, h*33/98), time.sleep(0.3)
-        pyautogui.click(w*5/38, h*37/97), time.sleep(0.3)
-        pyautogui.click(w/64, h*9/31), time.sleep(0.3)
-        pyautogui.click(w*10/79, h*17/53), time.sleep(0.3)
-        pyautogui.click(w*7/54, h*17/47), time.sleep(0.3)
-        pyautogui.click(w*7/54, h*17/47), time.sleep(0.3)
-        pyautogui.click(w*7/54, h*17/47), time.sleep(0.3)
-        pyautogui.click(w*7/54, h*17/47), time.sleep(0.3)
-        pyautogui.click(w*6/47, h*29/80), time.sleep(0.3)
-        pyautogui.click(w*5/39, h*38/99), time.sleep(0.3)
-        pyautogui.click(w*5/39, h*38/99), time.sleep(0.3)
-        pyautogui.click(w*5/39, h*38/99), time.sleep(0.3)
-        pyautogui.click(w*5/39, h*38/99), time.sleep(0.3)
-        pyautogui.click(w*5/39, h*38/99), time.sleep(0.3)
-        pyautogui.click(w*5/39, h*38/99), time.sleep(0.3)
-        pyautogui.click(w*11/84, h*19/45), time.sleep(0.3)
-        pyautogui.click(w*2/83, h*17/53), time.sleep(0.3)
-        pyautogui.click(w/44, h*33/100), time.sleep(0.3)
-        pyautogui.click(w*7/53, h*32/87), time.sleep(0.3)
-        pyautogui.click(w*5/39, h*7/17), time.sleep(0.3)
-        pyautogui.click(w*5/39, h*7/17), time.sleep(0.3)
-        pyautogui.click(w*5/39, h*7/17), time.sleep(0.3)
-        pyautogui.click(w*5/39, h*7/17), time.sleep(0.3)
-        pyautogui.click(w*5/39, h*7/17), time.sleep(0.3)
-        pyautogui.click(w*11/85, h*29/67), time.sleep(0.3)
-        pyautogui.click(w*11/85, h*29/67), time.sleep(0.3)
-        pyautogui.click(w*11/85, h*29/67), time.sleep(0.3)
-        pyautogui.click(w*11/85, h*29/67), time.sleep(0.3)
-        pyautogui.click(w*11/85, h*29/67), time.sleep(0.3)
-        pyautogui.click(w*11/85, h*29/67), time.sleep(0.3)
-        pyautogui.click(w*8/63, h*40/87), time.sleep(0.3)
-        pyautogui.click(w*6/47, h*41/88), time.sleep(0.3)
-        pyautogui.click(w*13/95, h*43/92), time.sleep(0.3)
-        pyautogui.click(w*2/95, h*23/61), time.sleep(0.3)
-        pyautogui.click(w*8/63, h*37/89), time.sleep(0.3)
-        pyautogui.click(w*11/84, h*5/11), time.sleep(0.3)
-        pyautogui.click(w*11/84, h*5/11), time.sleep(0.3)
-        pyautogui.click(w*11/84, h*5/11), time.sleep(0.3)
-        pyautogui.click(w*11/84, h*5/11), time.sleep(0.3)
-        pyautogui.click(w*11/84, h*5/11), time.sleep(0.3)
-        pyautogui.click(w*5/39, h*37/78), time.sleep(0.3)
-        pyautogui.click(w*9/70, h*37/78), time.sleep(0.3)
-        pyautogui.click(w*9/70, h*37/78), time.sleep(0.3)
-        pyautogui.click(w*9/70, h*37/78), time.sleep(0.3)
-        pyautogui.click(w*4/31, h*37/78), time.sleep(0.3)
-        pyautogui.click(w*4/31, h*37/78), time.sleep(0.3)
-        pyautogui.click(w*13/99, h*23/45), time.sleep(0.3)
-        pyautogui.click(w*2/73, h*31/72), time.sleep(0.3)
-        pyautogui.click(w/8, h*5/11), time.sleep(0.3)
-        pyautogui.click(w/8, h/2), time.sleep(0.3)
-        pyautogui.click(w*12/95, h/2), time.sleep(0.3)
-        pyautogui.click(w*12/95, h/2), time.sleep(0.3)
-        pyautogui.click(w*10/79, h/2), time.sleep(0.3)
-        pyautogui.click(w*10/79, h/2), time.sleep(0.3)
-        pyautogui.click(w*10/79, h/2), time.sleep(0.3)
-        pyautogui.click(w*7/55, h*43/83), time.sleep(0.3)
-        pyautogui.click(w*7/55, h*43/83), time.sleep(0.3)
-        pyautogui.click(w*7/55, h*43/83), time.sleep(0.3)
-        pyautogui.click(w*7/55, h*43/83), time.sleep(0.3)
-        pyautogui.click(w*7/55, h*14/27), time.sleep(0.3)
-        pyautogui.click(w*7/55, h*14/27), time.sleep(0.3)
-        pyautogui.click(w*9/70, h*52/93), time.sleep(0.3)
-        pyautogui.click(w*2/83, h*31/65), time.sleep(0.3)
-        pyautogui.click(w*6/47, h*31/61), time.sleep(0.3)
-        pyautogui.click(w*4/31, h*39/71), time.sleep(0.3)
-        pyautogui.click(w*4/31, h*39/71), time.sleep(0.3)
-        pyautogui.click(w*7/54, h*39/71), time.sleep(0.3)
-        pyautogui.click(w*13/100, h*39/71), time.sleep(0.3)
-        pyautogui.click(w*13/100, h*39/71), time.sleep(0.3)
-        pyautogui.click(w*4/31, h*9/16), time.sleep(0.3)
-        pyautogui.click(w*4/31, h*9/16), time.sleep(0.3)
-        pyautogui.click(w*13/100, h*9/16), time.sleep(0.3)
-        pyautogui.click(w*3/23, h*9/16), time.sleep(0.3)
-        pyautogui.click(w*3/23, h*9/16), time.sleep(0.3)
-        pyautogui.click(w*13/100, h*13/23), time.sleep(0.3)
-        pyautogui.click(w*12/95, h*35/58), time.sleep(0.3)
-        pyautogui.click(w/66, h*17/33), time.sleep(0.3)
-        pyautogui.click(w*7/55, h*46/83), time.sleep(0.3)
-        pyautogui.click(w*9/70, h*3/5), time.sleep(0.3)
-        pyautogui.click(w*4/31, h*58/97), time.sleep(0.3)
-        pyautogui.click(w*4/31, h*58/97), time.sleep(0.3)
-        pyautogui.click(w*4/31, h*58/97), time.sleep(0.3)
-        pyautogui.click(w*4/31, h*58/97), time.sleep(0.3)
-        pyautogui.click(w*7/55, h*43/72), time.sleep(0.3)
-        pyautogui.click(w*8/63, h*59/97), time.sleep(0.3)
-        pyautogui.click(w*7/55, h*59/97), time.sleep(0.3)
-        pyautogui.click(w*6/47, h*59/97), time.sleep(0.3)
-        pyautogui.click(w*6/47, h*59/97), time.sleep(0.3)
-        pyautogui.click(w*6/47, h*59/97), time.sleep(0.3)
-        pyautogui.click(w*6/47, h*59/97), time.sleep(0.3)
-        pyautogui.click(w*11/85, h*55/84), time.sleep(0.3)
-        pyautogui.click(w*17/88, h*58/93), time.sleep(0.3)
-        pyautogui.click(w/52, h*12/23), time.sleep(0.3)
-        pyautogui.click(w/52, h*12/23), time.sleep(0.3)
-        # Recording OFF
-        # Recording ON
-        pyautogui.click(w*27/97, h*16/67), time.sleep(0.3)
-        pyautogui.click(w*27/97, h*16/67), time.sleep(0.3)
-        # Recording OFF
-        # Recording ON
-        # Exiting...
-        pyautogui.click(w*18/37, h*15/29), time.sleep(0.3)
-        pyautogui.click(w*7/15, h*27/32), time.sleep(0.3)
-        pyautogui.click(w*36/97, h*43/92), time.sleep(0.3)
-        pyautogui.click(w*20/71, h*4/7), time.sleep(0.3)
-        pyautogui.click(w*-27/95, h*44/45), time.sleep(0.3)
-        pyautogui.click(w*-3/86, h*40/53), time.sleep(0.3)
+last_key = None
+target_coords = None  # will store the double click coords
 
 
+def wait_for_double_click():
+    print("Waiting for double click...")
+    result = {}
+
+    def handler():
+        result['pos'] = mouse.get_position()
+
+    # register a one-time handler
+    mouse.on_double_click(handler)
+    
+    # wait until handler is triggered
+    while 'pos' not in result:
+        time.sleep(0.01)
+
+    x, y = result['pos']
+    print(f"Double click recorded at: {x}, {y}")
+    return x, y
 
 
-    if keyboard.is_pressed("esc"):
-        print("Exiting...")
-        quit()
+# --- Run macro sequence once ---
+for delay, key in macro_sequence:
+    time.sleep(delay)
+
+    # --- Special macro action: WAIT_FOR_DOUBLE_CLICK ---
+    if key == "WAIT_FOR_DOUBLE_CLICK":
+        if target_coords is None:
+            target_coords = wait_for_double_click()
+        x, y = target_coords
+        mouse.move(x, y)
+        mouse.double_click()
+        last_key = None
+        continue
+
+    # --- Normal key handling ---
+    if key.startswith("Key."):
+        key_name = key[4:]
+    else:
+        key_name = key
+
+    # Ensure repeated keys are registered
+    if key_name == last_key:
+        time.sleep(MIN_BETWEEN_SAME_KEYS)
+
+    keyboard.press(key_name)
+    time.sleep(MIN_PRESS_TIME)
+    keyboard.release(key_name)
+
+    last_key = key_name
+
+print("Macro playback finished (test run).")

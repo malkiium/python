@@ -1,71 +1,61 @@
-from pynput import mouse, keyboard
-import pyautogui
-from fractions import Fraction
+from pynput import keyboard, mouse
 import time
+import threading
 
-recording = False
-w, h = pyautogui.size()
-output_file = "recorded_macro.txt"
+# --- Configuration ---
+output_file = "recorded_keyboard_macro.py"
+recording = True  # start recording immediately
+paused = False
+last_time = None
+macro_sequence = []
 
-# Clear file at start
-with open(output_file, "w") as f:
-    f.write("# Recorded macro\n\n")
+# --- Utilities ---
+def record_key(key_char):
+    global last_time
+    now = time.time()
+    delay = round(now - last_time, 3) if last_time else 0
+    last_time = now
+    macro_sequence.append((delay, key_char))
+    print(f"Recorded: ({delay}, '{key_char}')")
 
-def save_line(line):
-    """Append a line to the file with a 0.1s delay"""
-    full_line = f"{line}, time.sleep(0.1)"
-    print(full_line)
-    with open(output_file, "a") as f:
-        f.write(full_line + "\n")
-
-def simplify(value, total):
-    frac = Fraction(value, total).limit_denominator(100)
-    if frac.numerator == 1:
-        return f"/{frac.denominator}"
-    else:
-        return f"*{frac.numerator}/{frac.denominator}"
-
-# --- Mouse callbacks ---
-def on_click(x, y, button, pressed):
-    if recording and pressed:
-        fx = simplify(int(x), w)
-        fy = simplify(int(y), h)
-        if button == mouse.Button.left:
-            save_line(f"pyautogui.click(w{fx}, h{fy}), time.sleep(0.1)")
-        elif button == mouse.Button.right:
-            save_line(f"pyautogui.rightClick(w{fx}, h{fy}), time.sleep(0.1)")
-        elif button == mouse.Button.middle:
-            save_line(f"pyautogui.middleClick(w{fx}, h{fy}), time.sleep(0.1)")
-
-def on_scroll(x, y, dx, dy):
-    if recording:
-        save_line(f"pyautogui.scroll({dy})")
-
-# --- Keyboard callback ---
+# --- Keyboard listener ---
 def on_press(key):
-    global recording
+    if not recording or paused:
+        return
     try:
-        if key == keyboard.Key.space:
-            recording = not recording
-            save_line(f"# Recording {'ON' if recording else 'OFF'}")
-        elif key == keyboard.Key.esc:
-            save_line("# Exiting...")
-            return False
+        if hasattr(key, "char") and key.char is not None:
+            record_key(key.char)
         else:
-            # Record normal key presses
-            if hasattr(key, 'char') and key.char is not None:
-                save_line(f"pyautogui.press('{key.char}'), time.sleep(0.1)")
-            else:
-                # special keys like shift, ctrl, etc.
-                save_line(f"pyautogui.press('{key.name}'), time.sleep(0.1)")
+            # special keys (shift, ctrl, etc.)
+            record_key(str(key))
     except AttributeError:
         pass
 
-print("Press SPACE to toggle recording. Press ESC to quit.")
-print(f"Output saved to {output_file}")
+# --- Mouse listener ---
+def on_click(x, y, button, pressed):
+    global recording, paused
+    if pressed:
+        if button == mouse.Button.left:
+            # Stop and save
+            recording = False
+            with open(output_file, "w") as f:
+                f.write("macro_sequence = [\n")
+                for step in macro_sequence:
+                    f.write(f"    ({step[0]}, '{step[1]}'),\n")
+                f.write("]\n")
+            print(f"Macro saved to {output_file}. Exiting...")
+            return False  # stop mouse listener
+        elif button == mouse.Button.right:
+            # Toggle pause
+            paused = not paused
+            print(f"# Recording {'PAUSED' if paused else 'RESUMED'}")
 
 # --- Start listeners ---
-with mouse.Listener(on_click=on_click, on_scroll=on_scroll) as ml, \
-     keyboard.Listener(on_press=on_press) as kl:
-    ml.join()
-    kl.join()
+keyboard_listener = keyboard.Listener(on_press=on_press)
+mouse_listener = mouse.Listener(on_click=on_click)
+
+keyboard_listener.start()
+mouse_listener.start()
+
+keyboard_listener.join()
+mouse_listener.join()
