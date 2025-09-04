@@ -1,61 +1,88 @@
-from pynput import keyboard, mouse
 import time
+import keyboard
+import mouse  # pip install mouse
 import threading
 
-# --- Configuration ---
-output_file = "recorded_keyboard_macro.py"
-recording = True  # start recording immediately
-paused = False
-last_time = None
+# --- Load macro ---
+macro_file = r"C:\Users\eliha\vsc\python\requests\brawlhalla\recorded_keyboard_macro.py"
 macro_sequence = []
+with open(macro_file, "r") as f:
+    exec(f.read())  # defines macro_sequence
 
-# --- Utilities ---
-def record_key(key_char):
-    global last_time
-    now = time.time()
-    delay = round(now - last_time, 3) if last_time else 0
-    last_time = now
-    macro_sequence.append((delay, key_char))
-    print(f"Recorded: ({delay}, '{key_char}')")
+print("Replaying macro in 3 seconds... (Loops back to LOOP_START)")
+time.sleep(3)
 
-# --- Keyboard listener ---
-def on_press(key):
-    if not recording or paused:
-        return
-    try:
-        if hasattr(key, "char") and key.char is not None:
-            record_key(key.char)
+MIN_PRESS_TIME = 0.01  # 10 ms
+MIN_BETWEEN_SAME_KEYS = 0.01  # 10 ms
+
+last_key = None
+target_coords = None  # will store the double click coords
+
+
+def wait_for_double_click():
+    print("Waiting for double click...")
+    result = {}
+
+    def handler():
+        result['pos'] = mouse.get_position()
+
+    # register a one-time handler
+    mouse.on_double_click(handler)
+
+    # wait until handler is triggered
+    while 'pos' not in result:
+        time.sleep(0.01)
+
+    x, y = result['pos']
+    print(f"Double click recorded at: {x}, {y}")
+    return x, y
+
+
+# --- Run macro with loop ---
+i = 0
+loop_start_index = None
+
+while True:
+    delay, key = macro_sequence[i]
+    time.sleep(delay)
+
+    # --- Special: LOOP_START marker ---
+    if key == "LOOP_START":
+        loop_start_index = i  # remember this position
+        i += 1
+        continue
+
+    # --- Special: WAIT_FOR_DOUBLE_CLICK ---
+    if key == "WAIT_FOR_DOUBLE_CLICK":
+        if target_coords is None:
+            target_coords = wait_for_double_click()
+        x, y = target_coords
+        mouse.move(x, y)
+        mouse.double_click()
+        last_key = None
+        i += 1
+        continue
+
+    # --- Normal key handling ---
+    if key.startswith("Key."):
+        key_name = key[4:]
+    else:
+        key_name = key
+
+    if key_name == last_key:
+        time.sleep(MIN_BETWEEN_SAME_KEYS)
+
+    keyboard.press(key_name)
+    time.sleep(MIN_PRESS_TIME)
+    keyboard.release(key_name)
+
+    last_key = key_name
+    i += 1
+
+    # --- If end of macro reached, jump back to LOOP_START (if defined) ---
+    if i >= len(macro_sequence):
+        if loop_start_index is not None:
+            i = loop_start_index
         else:
-            # special keys (shift, ctrl, etc.)
-            record_key(str(key))
-    except AttributeError:
-        pass
-
-# --- Mouse listener ---
-def on_click(x, y, button, pressed):
-    global recording, paused
-    if pressed:
-        if button == mouse.Button.left:
-            # Stop and save
-            recording = False
-            with open(output_file, "w") as f:
-                f.write("macro_sequence = [\n")
-                for step in macro_sequence:
-                    f.write(f"    ({step[0]}, '{step[1]}'),\n")
-                f.write("]\n")
-            print(f"Macro saved to {output_file}. Exiting...")
-            return False  # stop mouse listener
-        elif button == mouse.Button.right:
-            # Toggle pause
-            paused = not paused
-            print(f"# Recording {'PAUSED' if paused else 'RESUMED'}")
-
-# --- Start listeners ---
-keyboard_listener = keyboard.Listener(on_press=on_press)
-mouse_listener = mouse.Listener(on_click=on_click)
-
-keyboard_listener.start()
-mouse_listener.start()
-
-keyboard_listener.join()
-mouse_listener.join()
+            print("Macro finished (no LOOP_START found).")
+            break

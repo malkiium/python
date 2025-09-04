@@ -9,7 +9,7 @@ macro_sequence = []
 with open(macro_file, "r") as f:
     exec(f.read())  # defines macro_sequence
 
-print("Replaying macro in 3 seconds... (One-shot test run)")
+print("Replaying macro in 3 seconds... (Loops back to LOOP_START)")
 time.sleep(3)
 
 MIN_PRESS_TIME = 0.01  # 10 ms
@@ -28,7 +28,7 @@ def wait_for_double_click():
 
     # register a one-time handler
     mouse.on_double_click(handler)
-    
+
     # wait until handler is triggered
     while 'pos' not in result:
         time.sleep(0.01)
@@ -38,18 +38,42 @@ def wait_for_double_click():
     return x, y
 
 
-# --- Run macro sequence once ---
-for delay, key in macro_sequence:
+# --- Run macro with loop ---
+i = 0
+loop_start_index = None
+
+while True:
+    delay, key = macro_sequence[i]
     time.sleep(delay)
 
-    # --- Special macro action: WAIT_FOR_DOUBLE_CLICK ---
+    # --- Special: LOOP_START marker ---
+    if key == "LOOP_START":
+        loop_start_index = i  # remember this position
+        i += 1
+        continue
+
+    # --- Special: LOOP_END ---
+    if key == "LOOP_END":
+        if loop_start_index is not None:
+            i = loop_start_index
+            continue
+        else:
+            print("LOOP_END reached but LOOP_START not defined. Stopping macro.")
+            break
+
+
+    # --- Special: WAIT_FOR_DOUBLE_CLICK ---
     if key == "WAIT_FOR_DOUBLE_CLICK":
         if target_coords is None:
             target_coords = wait_for_double_click()
         x, y = target_coords
         mouse.move(x, y)
-        mouse.double_click()
+        mouse.click()
+        time.sleep(0.2)
+        keyboard.press('c')
+        time.sleep(0.1)
         last_key = None
+        i += 1
         continue
 
     # --- Normal key handling ---
@@ -58,7 +82,6 @@ for delay, key in macro_sequence:
     else:
         key_name = key
 
-    # Ensure repeated keys are registered
     if key_name == last_key:
         time.sleep(MIN_BETWEEN_SAME_KEYS)
 
@@ -67,5 +90,12 @@ for delay, key in macro_sequence:
     keyboard.release(key_name)
 
     last_key = key_name
+    i += 1
 
-print("Macro playback finished (test run).")
+    # --- If end of macro reached, jump back to LOOP_START (if defined) ---
+    if i >= len(macro_sequence):
+        if loop_start_index is not None:
+            i = loop_start_index
+        else:
+            print("Macro finished (no LOOP_START found).")
+            break
