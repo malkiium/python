@@ -1,10 +1,15 @@
-import time
 import keyboard
 import mouse  # pip install mouse
-import threading
+import time 
+import os
+import sys
 
-# --- Load macro ---
-macro_file = r"C:\Users\eliha\vsc\python\requests\brawlhalla\recorded_keyboard_macro.py"
+if getattr(sys, 'frozen', False):
+    macro_file = os.path.join(getattr(sys, '_MEIPASS', os.path.dirname(__file__)), "recorded_keyboard_macro.py")
+else:
+    macro_file = os.path.join(os.path.dirname(__file__), "recorded_keyboard_macro.py")
+
+
 macro_sequence = []
 with open(macro_file, "r") as f:
     exec(f.read())  # defines macro_sequence
