@@ -15,7 +15,7 @@ print(f"nom : {clientL[0]}, prenom : {clientL[1]}, age : {clientL[2]}, ville : {
 print("tuple:")
 print(f"nom : {clientT[0]}, prenom : {clientT[1]}, age : {clientT[2]}, ville : {clientT[3]}")
 
-print("\n\n\n\n\n\n\n\n\n\n\n\n")
+print("\n\n\n")
 
 listedl = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 tupledl = tuple(listedl)

@@ -9,19 +9,18 @@ for i in range(mxlength + 1):
 
 def malkisort():
     global mnlength
-    middle = (mxlength - mnlength) // 2
     while mxlength - mnlength > 1:
-        middle = middle // 2
+        middle = (mnlength + mxlength) // 2
         print(middle)
         print(unsorted)
         if middle == mnlength:
             if unsorted[middle] > unsorted[middle + 1]:
                 unsorted[middle], unsorted[middle + 1] = unsorted[middle + 1], unsorted[middle]
                 mnlength += 1
-                middle = (mxlength - mnlength)
+                malkisort()
             else : 
                 mnlength += 1
-                middle = (mxlength - mnlength)
+                malkisort()
 
 
 malkisort()
