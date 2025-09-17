@@ -1,10 +1,10 @@
-from manim import *
-import numpy as np
+from manim import *  # type: ignore
 
-class Waves(Scene):
+class imager(Scene):
     def construct(self):
-        a = Axes(x_range=[-1, 10], y_range=[-1, 10])
+        m = SVGMobject("images/file.svg").shift(UP)
+        t = Text("Nebula").next_to(m, DOWN)
 
-        graph = a.plot(lambda x: np.sin(x), color=BLUE)
-
-        self.add(graph, a)
+        self.play(DrawBorderThenFill(m, run_time=2))  # animate the SVG
+        self.play(Write(t))  # animate the text
+        self.wait(2)
