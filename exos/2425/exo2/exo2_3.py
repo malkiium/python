@@ -1,6 +1,5 @@
 ch1 = ""
 ch2 = ""
-difletters = 0
 
 def bananagramstuff():
     global ch2, ch1
@@ -9,8 +8,9 @@ def bananagramstuff():
     ch2 = input("what is the second word ? : ")
 
     if len(ch1.lower()) == len(ch2.lower()):
-        difletters = len(set(ch1) ^ set(ch2))  # Symmetric difference
-        if difletters == 0:
+        ch1_s = sorted(list(ch1))
+        ch2_s = sorted(list(ch2))
+        if ch1_s == ch2_s:
             print("True")
         else:
             print("False")
