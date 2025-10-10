@@ -1,0 +1,7 @@
+a = 0
+b = 0
+while id(a) == id(b):
+    a += 1
+    b += 1
+
+print("found one :", a, id(a), " != ", id(b), b)
