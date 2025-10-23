@@ -18,7 +18,7 @@ def triang(size):
 
 # ------square------
 def squrt(size):
-    print(size)
+    print(size*"*")
     for line in range(1, size):
         for wid in range(size):
             if wid==0 or wid==size-1:
@@ -30,7 +30,28 @@ def squrt(size):
 
 # ------circle------
 def crik(size):
-    
+    wid=1
+    print((size-wid)*" ", size*"*")
+    for growth in range(1, size):
+        print(end=((size-wid)*" "))
+        print(end="*")
+        print(end=(size+(2*wid)-2)*" ")
+        print(end="*")
+        wid +=1
+        print()
+    for straight in range(1, size+1):
+        print(end="*")
+        print(end=((size*3-2))*" ")
+        print(end="*")
+        print()
+    for smals in range(1, size):
+        wid-=1
+        print(end=((size-wid)*" "))
+        print(end="*")
+        print(end=(size+(2*wid)-2)*" ")
+        print(end="*")
+        print()
+    print((size-wid)*" ", size*"*")
 
 
 
