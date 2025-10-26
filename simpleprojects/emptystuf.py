@@ -60,5 +60,11 @@ if choise == 1:
     triang(chosize)
 elif choise == 2:
     squrt(chosize)
+elif choise == 3:
+    crik(chosize)
 else:
+    triang(chosize)
+    print()
+    squrt(chosize)
+    print()
     crik(chosize)
