@@ -6,7 +6,7 @@ import math
 sys.set_int_max_str_digits(10**6)
 
 def factorial_scientific():
-    x = 55000
+    x = 5500000
     print("Calculating the factorial of", x)
     print("This may take a while...")
 
