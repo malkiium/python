@@ -16,3 +16,5 @@ def hammingstuff():
         print("-1")
 
 hammingstuff()
+
+## possibility : make 2 lists, .sort() the lists, if list1 == list 2 then "gg", else "ur bad."
