@@ -10,16 +10,16 @@
 taille = int(input("quelle taille pour le damier ? : "))
 for curln in range(taille):
     line = ""
-    if curln%2 == 0:
-        for aded in range(taille):
-            if aded%2 == 1:
-                line += "O "
-            else:
-                line+="X "
-    else:
+    if curln%2 == 1:
         for aded in range(taille):
             if aded%2 == 1:
                 line += "X "
             else:
                 line+="O "
+    else:
+        for aded in range(taille):
+            if aded%2 == 1:
+                line += "O "
+            else:
+                line+="X "
     print(line)
