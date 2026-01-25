@@ -6,15 +6,12 @@ helf = x/2
 sq = 0
 timesrt = time.time()
 
-while True:
+while abs(sq - x) > 0.0000001:
 
     sq = helf*helf
-    if abs(sq - x) < 0.0000001:
-        print("found at : ", helf)
-        break
-    elif (helf*helf) > x:
-        helf-=(helf/2)
-    else:
-        helf+=(helf/2)
+    print(helf)
+    helf = (helf+(x/helf))/2
+
+print("found at : ", helf)
 
 print("this took : ", time.time() - timesrt, "seconds")
