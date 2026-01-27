@@ -1,11 +1,12 @@
 def trials():
-    if false1:
-        return false
+    if False:
+        return False
     else:
-        return true
+        return True
 
-if trials():
-    print("true")
+def trials2():
+    if trials():
+        print("true")
 
-if trials() and trials2():
-    return true
+    if trials() and trials2():
+        return True
