@@ -35,21 +35,27 @@ def gameInit():
         print("Invalid choice")
         return
 
-    gameLoop(chosenWord)
+    wordList = ["-"] * len(chosenWord)
+    gameLoop(chosenWord, wordList)
 
-def gameLoop(choseWord: str):
-    userGuess = str(input(": " ))
-    for i in range(len(userGuess)) :
-        for j in range(len(choseWord)):
-            if userGuess[i] == choseWord[i] :
-                
-            elif userGuess[i] == choseWord[j] :
-                
+def gameLoop(chosenWord: str, wordList: list):
+    print("Current word: " + " ".join(wordList))
+    userGuess = input("Guess a word: ")
 
-    if userGuess == choseWord :
-        print("good job, you won !")
+    others = []
+    for i in range(len(userGuess)):
+        if i < len(chosenWord):
+            if userGuess[i].lower() == chosenWord[i].lower():
+                wordList[i] = userGuess[i]
+            elif userGuess[i].lower() in chosenWord.lower():
+                others.append(userGuess[i])
+
+    if "".join(wordList).lower() == chosenWord.lower():
+        print(f"Good job, you won! The word was '{chosenWord}'.")
         return
-
-    gameLoop(choseWord)
+    else:
+        if others:
+            print("Letters in the word but wrong place:", ", ".join(others))
+        gameLoop(chosenWord, wordList)
 
 gameInit()
