@@ -8,7 +8,7 @@ def saisir_entier(mess: int) -> function :
         return(saisir_entier_sup(mess, num))
 
 def saisir_entier_sup (mess : int, inf : int) -> list:
-    num = input(mess)
+    num = int(input(mess))
     interv = []
 
     if not num.isdigit():
