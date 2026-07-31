@@ -1,6 +1,6 @@
 fib = [0, 1]
 
-def fibonacii(i):
+def fibonacci(i):
     j = 2
     while fib[-1] < i:
         print(fib[j-1])
@@ -11,16 +11,11 @@ def fibonacii(i):
 def kmtml(i):
     print(i * 1.609344, "km")
     print(i * 0.6213711922, "mi")
-    
-
-
-
-
 
 
 numbwanted = int(input("what number do you want to convert ? : "))
 
-fibonacii(numbwanted)
+fibonacci(numbwanted)
 print("\n")
 kmtml(numbwanted)
 
